@@ -182,7 +182,7 @@ async def stream(request: Request, b64config: str, type: str, id: str):
                                         if "torrent_size" in data
                                         else None
                                     ),
-                                    "url": f"{request.url.scheme}://{request.url.netloc}/{b64config}/playback/{hash}/{data['index']}",
+                                    "url": f"https://{request.url.netloc}/{b64config}/playback/{hash}/{data['index']}",
                                     "behaviorHints": {
                                         "filename": data["raw_title"],
                                         "bingeGroup": "comet|" + hash,
@@ -423,7 +423,7 @@ async def stream(request: Request, b64config: str, type: str, id: str):
                             "title": format_title(data, config),
                             "torrentTitle": data["torrent_title"],
                             "torrentSize": data["torrent_size"],
-                            "url": f"{request.url.scheme}://{request.url.netloc}/{b64config}/playback/{hash}/{data['index']}",
+                            "url": f"https://{request.url.netloc}/{b64config}/playback/{hash}/{data['index']}",
                             "behaviorHints": {
                                 "filename": data["raw_title"],
                                 "bingeGroup": "comet|" + hash,
